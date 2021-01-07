@@ -16,12 +16,20 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body>
-{{--        <div class="font-sans text-gray-900 antialiased">--}}
-{{--            {{ $slot }}--}}
-{{--        </div>--}}
+    <body class="bg-grey-light">
 
-        <main class="py-4">
+        <nav class="bg-white">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center py-2">
+                    <a href="{{ url('/') }}" class="navbar-brand">
+                        {{ config('app.name') }}
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+
+        <main class="container py-4 mx-auto">
             @yield('content')
         </main>
 
