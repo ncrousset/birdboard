@@ -16,14 +16,16 @@
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
-    <body class="bg-grey-light">
+    <body class="bg-gray-100">
 
         <nav class="bg-white">
             <div class="container mx-auto">
                 <div class="flex justify-between items-center py-2">
-                    <a href="{{ url('/') }}" class="navbar-brand">
-                        {{ config('app.name') }}
-                    </a>
+                    <h1>
+                        <a href="{{ url('/') }}" class="navbar-brand">
+                            <img src="/images/logo.svg" alt="Birdboard" >
+                        </a>
+                    </h1>
                 </div>
             </div>
         </nav>
