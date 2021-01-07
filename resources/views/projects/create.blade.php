@@ -1,15 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post" action="/projects" class="container" style="padding-top: 40px">
+@extends('layouts.guest')
+
+@section('content')
+    <form method="post" action="/projects" class="container">
         @csrf
 
         <h1 class="heading is-1">Create a Project</h1>
@@ -31,10 +23,9 @@
         <div class="field">
             <div class="control">
                 <button type="submit" class="button is-link">Create Project</button>
+                <a href="/projects">Cancel</a>
             </div>
         </div>
 
     </form>
-
-</body>
-</html>
+@endsection
