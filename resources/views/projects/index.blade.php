@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <header class="flex items-center mb-3 py-4">
+    <header class="buttonB">
         <div class="flex justify-between items-end w-full">
             <h2 class="text-gray-500 text-sm font-normal">My Projects</h2>
             <a href="/projects/create" class="button text-white no-underline text-sm py-2 px-5">New Project</a>
@@ -10,7 +10,7 @@
     </header>
 
 
-    <main class="flex flex-wrap -mx-3">
+    <main class="flex flex-wrap -mx-3 ">
         @forelse($projects as $project)
             <div class="w-1/3 px-3 pb-6">
                 <div class="bg-white p-5 rounded-lg shadow " style="height: 200px">

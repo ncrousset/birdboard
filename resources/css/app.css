@@ -8,3 +8,13 @@
     box-shadow: 0 2px 7px 0 #b0eaff;
     background-color: #47cdff;
 }
+
+
+.buttonA {
+    background: #1a202c;
+}
+
+.buttonB {
+    @extend .buttonA;
+    color: #cbd5e0;
+}
