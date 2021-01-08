@@ -21,4 +21,19 @@ class Project extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+
+    /**
+     * @param $body
+     * @return mixed
+     */
+    public function addTask($body)
+    {
+        return $this->tasks()->create(compact('body'));
+    }
+
 }
