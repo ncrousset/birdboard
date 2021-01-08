@@ -2,19 +2,26 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import "_variables.css";
 
 .button {
     border-radius: 8px;
-    box-shadow: 0 2px 7px 0 #b0eaff;
-    background-color: #47cdff;
+    box-shadow: 0 2px 7px 0 var(--blue-light);
+    background-color: var(--blue);
+    @extend .text-white;
+    @extend .no-underline;
+    @extend .text-sm;
+    @extend .py-2;
+    @extend .px-5;
 }
 
-
-.buttonA {
-    background: #1a202c;
+.border-blue-light {
+    border-color: var(--blue-light);
 }
 
-.buttonB {
-    @extend .buttonA;
-    color: #cbd5e0;
+.card {
+    @extend .bg-white;
+    @extend .p-5;
+    @extend .rounded-lg;
+    @extend .shadow;
 }

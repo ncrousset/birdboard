@@ -5544,6 +5544,13 @@ postcss-values-parser@^4.0.0:
     is-url-superb "^4.0.0"
     postcss "^7.0.5"
 
+postcss-variables@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/postcss-variables/-/postcss-variables-1.1.1.tgz#f86856acd0583b0c493767f22f7258509d37f9e0"
+  integrity sha512-a9b2ZXoy60xl28m+jedXYvbXLdYSLPXOqvgkLUHhOUbhIRlVoSHRGhGtpMLkcgVc05lu3JUBEypLVcTYNcltMw==
+  dependencies:
+    postcss "^6.0.9"
+
 postcss@7.0.21:
   version "7.0.21"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.21.tgz#06bb07824c19c2021c5d056d5b10c35b989f7e17"

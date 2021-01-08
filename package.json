@@ -23,6 +23,7 @@
     },
     "dependencies": {
         "postcss-custom-properties": "^10.0.0",
-        "postcss-extend": "^1.0.5"
+        "postcss-extend": "^1.0.5",
+        "postcss-variables": "^1.1.1"
     }
 }
