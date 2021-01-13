@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Str;
+use Facades\Tests\Setup\ProjectFactory;
 use Tests\TestCase;
 use App\Models\Project;
 
@@ -27,7 +28,6 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function a_user_can_create_a_project()
     {
-        $this->withoutExceptionHandling();
 
         $this->signIn();
 
@@ -56,31 +56,24 @@ class ManageProjectsTest extends TestCase
     /** @test */
     public function a_user_update_a_project()
     {
-        $this->signIn();
 
-        $this->withoutExceptionHandling();
+        $project = ProjectFactory::create();
 
-        $project = Project::factory()->create(['owner_id' => auth()->id()]);
+        $this->actingAs($project->owner)
+            ->patch($project->path(), $attributes = ['notes' => 'Changed'])
+            ->assertRedirect($project->path());
 
-        $this->patch($project->path(), [
-            'notes' => 'Changed'
-        ])->assertRedirect($project->path());
-
-        $this->assertDatabaseHas('projects', ['notes' => 'Changed']);
+        $this->assertDatabaseHas('projects', $attributes);
 
     }
 
     /** @test */
     public function a_user_can_view_their_project()
     {
+        $project = ProjectFactory::create();
 
-        $this->signIn();
-
-        $this->withoutExceptionHandling();
-
-        $project = Project::factory()->create(['owner_id' => auth()->id()]);
-
-        $this->get($project->path())
+        $this->actingAs($project->owner)
+            ->get($project->path())
             ->assertSee($project->title)
             ->assertSee(Str::limit($project->description, 100));
     }
@@ -90,7 +83,7 @@ class ManageProjectsTest extends TestCase
     {
         $this->signIn();
 
-        $project = Project::factory()->create();
+        $project = ProjectFactory::create();
 
         $this->get($project->path())->assertStatus(403);
     }
@@ -124,6 +117,4 @@ class ManageProjectsTest extends TestCase
 
         $this->post('/projects', $attributes)->assertSessionHasErrors('description');
     }
-
-
 }
